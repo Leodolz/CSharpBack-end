@@ -34,8 +34,10 @@ namespace WebApplication2.Controllers
             var product = DefaultUsers.Find((user) => user.name == id);
             if (product == null)
             {
+                AuthController.WebAuth = false;
                 return NotFound();
             }
+            AuthController.WebAuth = true;
             return Ok(product);
         }
 
